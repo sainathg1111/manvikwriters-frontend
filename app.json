@@ -4,6 +4,9 @@
       "eas": {
         "projectId": "d68a63dc-d0e5-475a-9aeb-38aa07c7a8b4"
       }
+    },
+    "android": {
+      "package": "com.manvikwriters.manvikwriters"
     }
   }
 }
