@@ -24,6 +24,11 @@ export default function Login({ navigation }) {
 
       if (response.ok && data.token) {
         await AsyncStorage.setItem('token', data.token);
+
+        // ✅ Print token for testing
+        const storedToken = await AsyncStorage.getItem('token');
+        console.log('🔐 Stored JWT Token:', storedToken);
+
         Alert.alert('Success', 'Logged in successfully!');
         navigation.navigate('StudentDashboard');
       } else {
@@ -44,7 +49,6 @@ export default function Login({ navigation }) {
         value={email}
         onChangeText={setEmail}
         autoCapitalize="none"
-        keyboardType="email-address"
       />
       <TextInput
         style={styles.input}
@@ -62,12 +66,5 @@ export default function Login({ navigation }) {
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: 'center', padding: 20 },
   title: { fontSize: 24, marginBottom: 20, textAlign: 'center' },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 12,
-    paddingHorizontal: 10,
-    borderRadius: 5,
-  },
+  input: { height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 12, paddingHorizontal: 10 }
 });
